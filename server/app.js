@@ -14,6 +14,12 @@ import PaymentRoute from "./routes/router.js";
 import { CLIENT_URL } from "./utls/constants.js";
 app.use("/api", PaymentRoute )
 
+app.get("/", (req, res) => {
+    res.status(200).json({
+        success: true,
+        message: "Welcome from Razorpay Testing Server 🚀"
+    });
+});
 
 app.get("/api/getkey", (_, res) => {
     res.status(200).json({ key: process.env.RAZORPAY_API_KEY })
